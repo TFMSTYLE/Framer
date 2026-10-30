@@ -3,7 +3,7 @@
 ![framer-thumb](https://github.com/user-attachments/assets/42442271-bebe-41dc-8d0f-b795d7de0fd5)
 
 **Author:** The French Monkey (TFMSTYLE)  
-**Version:** 1.0.0  
+**Version:** 1.0.1  
 
 ---
 
@@ -100,3 +100,21 @@ Displays options to select a preset or clear the current selection.
 - Saved presets can include complex Cycles and Eevee configurations for consistent output.  
 - The system is designed for cross-project reuse, supporting both artistic and production workflows.  
 - Ideal for setting up multiple output targets such as cinematic frames, social media exports, or print-ready renders.
+
+---
+
+## Install
+
+Needs Blender 4.2 or later. Get the zip from [tfmstyle.com](https://tfmstyle.com), then in Blender open Edit > Preferences > Get Extensions, open the menu at the top right and pick Install from Disk.
+
+To build the zip yourself, run this in the repo folder:
+
+```bash
+blender --command extension build
+```
+
+---
+
+## License
+
+GPL 3.0 or later. See [LICENSE](LICENSE).

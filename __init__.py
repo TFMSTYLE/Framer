@@ -1,7 +1,10 @@
+# SPDX-FileCopyrightText: 2025-2026 The French Monkey
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 bl_info = {
     "name": "Framer",
     "author": "The French Monkey",
-    "version": (1, 0, 0),
+    "version": (1, 0, 1),
     "blender": (4, 2, 0),
     "location": "Sidebar > Framer",
     "description": "Configure Camera Resolution and render settings",
