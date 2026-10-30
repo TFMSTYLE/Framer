@@ -4,7 +4,7 @@
 bl_info = {
     "name": "Framer",
     "author": "The French Monkey",
-    "version": (1, 0, 1),
+    "version": (1, 0, 2),
     "blender": (4, 2, 0),
     "location": "Sidebar > Framer",
     "description": "Configure Camera Resolution and render settings",
@@ -19,6 +19,11 @@ import gpu
 import math
 import bpy_extras.view3d_utils
 from gpu_extras.batch import batch_for_shader
+
+try:
+    from . import relay_updater
+except ImportError:  # the Addon Collection has its own updates
+    relay_updater = None
 
 draw_handler = None
 
@@ -859,6 +864,8 @@ class VIEW3D_PT_framer(bpy.types.Panel):
     bl_category = 'Framer'
 
     def draw(self, context):
+        if relay_updater:
+            relay_updater.draw(self.layout)
         layout = self.layout
         s = context.scene.framer_settings
 
@@ -914,6 +921,8 @@ classes = (
 )
 
 def register():
+    if relay_updater:
+        relay_updater.register("blender-framer")
     from bpy.utils import register_class
     global draw_handler
     draw_handler = None
@@ -929,6 +938,8 @@ def register():
     bpy.app.timers.register(lambda: (framer_update_viewport() or None), first_interval=0.1)
 
 def unregister():
+    if relay_updater:
+        relay_updater.unregister()
     from bpy.utils import unregister_class
     global draw_handler
 
