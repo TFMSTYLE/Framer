@@ -4,7 +4,7 @@
 bl_info = {
     "name": "Framer",
     "author": "The French Monkey",
-    "version": (1, 0, 2),
+    "version": (1, 0, 3),
     "blender": (4, 2, 0),
     "location": "Sidebar > Framer",
     "description": "Configure Camera Resolution and render settings",
@@ -47,13 +47,19 @@ def get_preset_file():
 # Preset File Helpers
 # ------------------------------
 
+def clean_presets(data):
+    """Only well formed presets, so a hand edited file cannot break saving."""
+    if not isinstance(data, list):
+        return []
+    return [p for p in data if isinstance(p, dict) and "name" in p]
+
 def load_presets_from_file():
     fpath = get_preset_file()
     if not os.path.exists(fpath):
         return []
     try:
         with open(fpath, "r") as f:
-            return json.load(f)
+            return clean_presets(json.load(f))
     except Exception:
         return []
 
