@@ -4,7 +4,7 @@
 bl_info = {
     "name": "Framer",
     "author": "The French Monkey",
-    "version": (1, 0, 3),
+    "version": (1, 0, 4),
     "blender": (4, 2, 0),
     "location": "Sidebar > Framer",
     "description": "Configure Camera Resolution and render settings",

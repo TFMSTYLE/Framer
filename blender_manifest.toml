@@ -1,7 +1,7 @@
 schema_version = "1.0.0"
 
 id = "tfmstyle_framer"
-version = "1.0.3"
+version = "1.0.4"
 name = "TFMSTYLE - Framer"
 tagline = "Configure Camera Resolution and render settings"
 maintainer = "The French Monkey"
